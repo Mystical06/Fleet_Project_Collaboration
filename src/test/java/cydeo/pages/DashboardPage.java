@@ -43,6 +43,14 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "//table/tbody/tr[1]/td[2]")
     public WebElement anyLicensePlate2;
 
+    @FindBy(xpath = "//div[@class='grid-scrollable-container']")
+    public WebElement scrollbar;
+
+    @FindBy(xpath = "/html/body/ul/li/ul/li[1]/a")
+    public WebElement eyeIcon;
+
+
+
 
 
 
