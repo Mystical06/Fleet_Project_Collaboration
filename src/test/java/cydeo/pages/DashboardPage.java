@@ -16,6 +16,9 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "/html/body/div[2]/div[2]/header/div[2]/ul/li[2]/a/span")
     public WebElement fleetTab;
 
+    @FindBy(xpath = "//span[@class='title title-level-1']")
+    public WebElement fleet;
+
     @FindBy(xpath = "//span[.='Vehicles']")
     public WebElement vehiclesOption;
 
@@ -43,11 +46,36 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "//table/tbody/tr[1]/td[2]")
     public WebElement anyLicensePlate2;
 
+    @FindBy(xpath = "//td[@class='string-cell grid-cell grid-body-cell grid-body-cell-Driver']")
+    public WebElement vehicleRow;
+
     @FindBy(xpath = "//div[@class='grid-scrollable-container']")
     public WebElement scrollbar;
 
-    @FindBy(xpath = "/html/body/ul/li/ul/li[1]/a")
+
+    @FindBy(xpath = "/html/body/ul/li/ul/li[1]")
     public WebElement eyeIcon;
+
+    @FindBy(xpath ="//h5[@class='user-fieldset']")
+    public WebElement generalInformation;
+
+    @FindBy(xpath = "//h1[@class='oro-subtitle']" )
+    public WebElement cars;
+
+    @FindBy(css ="a[class*='edit-button']" )
+    public WebElement edit;
+
+    @FindBy(xpath ="//a[@title='Delete Car']" )
+    public WebElement delete;
+
+    @FindBy(xpath ="//a[contains(@title, 'to')]" )
+    public WebElement addEvent;
+
+    @FindBy(xpath= "//a[@class='dropdown-toggle']")
+    public WebElement profileName;
+
+    @FindBy(xpath = "//*[@id=\"user-menu\"]/ul/li[4]/a")
+    public WebElement logout;
 
 
 
