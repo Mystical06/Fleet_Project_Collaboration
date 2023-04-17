@@ -1,10 +1,9 @@
 package cydeo.step_definitions;
 
-import cydeo.pages.DashboardPage;
+import cydeo.pages.DashboardPage_Nurdan;
 import cydeo.pages.LoginPage;
 import cydeo.pages.QuickLaunchpadPage;
 import cydeo.utilities.Driver;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,7 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Nurdan_General_Information_Step_Definitions {
-    DashboardPage dashboardPage = new DashboardPage();
+    DashboardPage_Nurdan dashboardPage = new DashboardPage_Nurdan();
     QuickLaunchpadPage quickLaunchpadPage = new QuickLaunchpadPage();
 
     LoginPage loginPage=new LoginPage();
@@ -36,6 +35,7 @@ public class Nurdan_General_Information_Step_Definitions {
     }
     @Then("User clicks on any vehicle \\(row)")
     public void user_clicks_on_any_vehicle_row() {
+        dashboardPage.waitUntilLoaderScreenDisappear();
         dashboardPage.vehicleRow.click();
     }
 
@@ -52,24 +52,18 @@ public class Nurdan_General_Information_Step_Definitions {
 
     }
 
-    @Then("User is back to the Cars page")
-    public void user_is_back_to_the_Cars_page() throws InterruptedException {
-        dashboardPage.waitUntilLoaderScreenDisappear();
-        String actualHeader2 = dashboardPage.cars.getText();
-        String expectedHeader2 = "Cars";
-        Assert.assertEquals(expectedHeader2, actualHeader2);
-    }
 
     @When("user clicks eye icon at the end of each row")
     public void user_clicks_eye_icon_at_the_end_of_each_row() throws InterruptedException {
         dashboardPage.waitUntilLoaderScreenDisappear();
-       // actions.moveToElement(dashboardPage.scrollbar).pause(1000).clickAndHold().release().perform();
-        actions.moveToElement(dashboardPage.threeDotsInCarsPage).pause(1000).perform();
+        actions.moveToElement(dashboardPage.threeDotsInCarsPage).perform();
+        Thread.sleep(3000);
+        actions.moveToElement(dashboardPage.eyeIcon).perform();
+        Thread.sleep(2000);
         dashboardPage.eyeIcon.isDisplayed();
-        Thread.sleep(2000);
-        actions.moveToElement(dashboardPage.eyeIcon).pause(1000).perform();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         dashboardPage.eyeIcon.click();
+        Thread.sleep(2000);
     }
 
     @Then("user is on General Information page")
@@ -77,13 +71,9 @@ public class Nurdan_General_Information_Step_Definitions {
         String actualHeader = dashboardPage.generalInformation.getText();
         String expectedHeader = "General Information";
         Assert.assertEquals(expectedHeader, actualHeader);
+
     }
 
-    @And("User logs out")
-    public void userLogsOut() {
-        dashboardPage.profileName.click();
-        dashboardPage.logout.click();
-    }
 
     @Given("User logs in as a sales manager")
     public void userLogsInAsASalesManager() {
@@ -98,12 +88,12 @@ public class Nurdan_General_Information_Step_Definitions {
 
     @Then("User clicks on Vehicles under the Fleet")
     public void user_clicks_on_vehicles_under_the_fleet() {
-        dashboardPage.vehiclesOption.click();
+        dashboardPage.vehicles.click();
     }
 
     @Then("User clicks on vehicle row")
-    public void user_clicks_on_vehicle_row() throws InterruptedException {
-       Thread.sleep(3000);
+    public void user_clicks_on_vehicle_row() {
+       dashboardPage.waitUntilLoaderScreenDisappear();
         dashboardPage.vehicleRow.click();
     }
 
@@ -122,13 +112,16 @@ public class Nurdan_General_Information_Step_Definitions {
 
     @When("User clicks eye icon at the end of the row")
     public void user_clicks_eye_icon_at_the_end_of_the_row() throws InterruptedException {
-        dashboardPage.waitUntilLoaderScreenDisappear();
-        //actions.moveToElement(dashboardPage.scrollbar).pause(1000).clickAndHold().pause(1000).release().perform();
-        actions.moveToElement(dashboardPage.threeDotsInCarsPage).perform();
-        dashboardPage.eyeIcon.isDisplayed();
+        actions.moveToElement(dashboardPage.threeDots).perform();
+        Thread.sleep(3000);
         actions.moveToElement(dashboardPage.eyeIcon).perform();
+        Thread.sleep(2000);
+        dashboardPage.eyeIcon.isDisplayed();
+        Thread.sleep(3000);
         dashboardPage.eyeIcon.click();
+        Thread.sleep(2000);
     }
+
 
     @Then("User is on General Information page")
     public void user_is_on_general_information_page() {
@@ -139,9 +132,9 @@ public class Nurdan_General_Information_Step_Definitions {
 
     @Then("User sees the {string}, {string} and {string} buttons")
     public void user_sees_the_and_buttons(String string, String string2, String string3) {
-        dashboardPage.edit.isDisplayed();
-        dashboardPage.delete.isDisplayed();
-        dashboardPage.addEvent.isDisplayed();
+        Assert.assertTrue(dashboardPage.edit.isDisplayed());
+        Assert.assertTrue(dashboardPage.delete.isDisplayed());
+        Assert.assertTrue(dashboardPage.addEvent.isDisplayed());
 
     }
 
@@ -157,11 +150,12 @@ public class Nurdan_General_Information_Step_Definitions {
 
     @Then("User clicks on Vehicles")
     public void user_clicks_on_vehicles() {
-        dashboardPage.vehiclesOption.click();
+        dashboardPage.vehicles.click();
     }
 
     @Then("User clicks on any vehicle")
     public void user_clicks_on_any_vehicle() {
+        dashboardPage.waitUntilLoaderScreenDisappear();
         dashboardPage.vehicleRow.click();
     }
 
@@ -178,12 +172,15 @@ public class Nurdan_General_Information_Step_Definitions {
     }
 
     @When("User clicks eye icon at the end")
-    public void user_clicks_eye_icon_at_the_end() {
-        //actions.moveToElement(dashboardPage.scrollbar).pause(1000).clickAndHold().release().perform();
-        actions.moveToElement(dashboardPage.threeDotsInCarsPage).perform();
-        dashboardPage.eyeIcon.isDisplayed();
+    public void user_clicks_eye_icon_at_the_end() throws InterruptedException {
+        actions.moveToElement(dashboardPage.threeDots).perform();
+        Thread.sleep(3000);
         actions.moveToElement(dashboardPage.eyeIcon).perform();
+        Thread.sleep(2000);
+        dashboardPage.eyeIcon.isDisplayed();
+        Thread.sleep(3000);
         dashboardPage.eyeIcon.click();
+        Thread.sleep(2000);
     }
 
     @Then("user is on General Information page again")
@@ -195,9 +192,9 @@ public class Nurdan_General_Information_Step_Definitions {
 
     @Then("User sees the {string}, {string} and {string} buttons on the page")
     public void user_sees_the_and_buttons_on_the_page(String string, String string2, String string3) {
-        dashboardPage.edit.isDisplayed();
-        dashboardPage.delete.isDisplayed();
-        dashboardPage.addEvent.isDisplayed();
+        Assert.assertTrue(dashboardPage.edit.isDisplayed());
+        Assert.assertTrue(dashboardPage.delete.isDisplayed());
+        Assert.assertTrue(dashboardPage.addEvent.isDisplayed());
 
     }
 
