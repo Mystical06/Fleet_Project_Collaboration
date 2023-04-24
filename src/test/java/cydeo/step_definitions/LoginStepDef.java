@@ -1,5 +1,8 @@
 package cydeo.step_definitions;
+
 import cydeo.pages.LoginPage;
+import cydeo.utilities.ConfigurationReader;
+import cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,7 +18,8 @@ public class LoginStepDef {
 
     @Given("The user is on the login page")
     public void the_user_is_on_the_login_page() {
-        loginPage.goLoginPage();
+        Driver.getDriver().get(ConfigurationReader.getProperty("login.page.url"));
+        //loginPage.goLoginPage();
     }
 
     @When("The user logs in as a {string}")
