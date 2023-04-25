@@ -169,7 +169,7 @@ public class VehicleTableArrangements_Arzu {
     public void the_column_is_sorted_in_order(String columnName, String order) {
         vehiclePage.isColumnSorted(columnName, order);
     }
-//---------
+
 // Senaryo 5
 
     @And("The user saves the default order of {string}")

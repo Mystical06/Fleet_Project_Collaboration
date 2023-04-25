@@ -637,7 +637,26 @@ for given duration
     }
 
 
+    //<<<<<<< HEAD
+    //   public static List<String> methodAllResultsAsString(List<WebElement> results) {
+//=======
+    public static List<String> selectedNumbers(List<WebElement> selectedElement) {
+
+        //List of all ACTUAL <options> as a integer
+        List<String> selectedNumberAsString = new ArrayList<>();
+
+        for (WebElement each : selectedElement) {
+            selectedNumberAsString.add(each.getText());
+        }
+        return selectedNumberAsString;
+    }
+    //  }
+
+    //Fatma
+
+
     public static List<String> methodAllResultsAsString(List<WebElement> results) {
+//>>>>>>> master
         List<String> actualResultsAsString = new ArrayList<>();
 
         for (WebElement each : results) {
@@ -646,5 +665,6 @@ for given duration
         return actualResultsAsString;
 
     }
+
 
 }

@@ -1,17 +1,3 @@
-#User Story :
-#As a user, I should be able to arrange vehicle table display, under the Fleet-Vehicle page
-
-#Acceptance Criteria:
-#1- Validate that system does not show any empty record on the vehicle table
-#2- Validate the value of 'View Per Page' should be '25' by default
-#3- 'View Per Page' defines the number of total rows on a page and it has the options below:
-#10
-#25  //*[@id="grid-custom-entity-grid-95746792"]/div[2]/div[1]/div/div[3]/div[2]/div/div/button/text()
-#
-#50  //*[@id="grid-custom-entity-grid-1603661046"]/div[2]/div[2]/div[2]/div/table/tbody/tr[1]
-#100
-#4- Validate the user can sort a column in ascending or descending order by clicking the column name
-#5- Validate the user can remove all sorts and filters on the page by using the reset button
 @PER10-461
 Feature:
   As a user, I should be able to arrange vehicle table display,

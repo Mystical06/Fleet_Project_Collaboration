@@ -172,7 +172,6 @@ public class VehicleTablePage extends BasePage {
 //        //String path = "//ul[.//a[@data-size='" + expectedOption + "']]";
 //        String path = "//a[@class='dropdown-item'][text()[normalize-space() ='" + expectedOption + "']]";
 //
-//
 //        viewPageOption = Driver.getDriver().findElements(By.xpath(path));
 //
 //        BrowserUtils.wait(2);
