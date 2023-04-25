@@ -2,7 +2,6 @@ package cydeo.pages;
 
 import cydeo.utilities.BrowserUtils;
 import cydeo.utilities.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -61,6 +60,9 @@ public class DashboardPage extends BasePage {
 
 
     //Fatma's codes starts from here
+
+    // @FindBy(xpath = "//*[@id=\"grid-custom-entity-grid-650707726\"]/div[2]/div[1]/div/div[3]/div[1]/div/a[1]")
+    //public WebElement filter;
 
     @FindBy(xpath = "//i[@class='fa-filter hide-text']")
     public WebElement driverFilterIcon;
@@ -129,6 +131,9 @@ public class DashboardPage extends BasePage {
     public WebElement UpdateButton;
 
     @FindBy(xpath = "//tbody[@class='grid-body']/tr/td[6]")
+
+    private List<WebElement> ChassisBetweenList;
+///=======
     public List<WebElement> SelectedChassisNumberBetweenList;
 
     public void enterMethodValues(String val) {
@@ -138,20 +143,6 @@ public class DashboardPage extends BasePage {
     }
 
 
-    @FindBy(css = "div.btn-group.btn-block.open li")
-    private List<WebElement> allFilterMethods;
-
-    public void selectFilterMethod(String methodName) {
-        int size = allFilterMethods.size();
-
-        for (WebElement allFilterMethod : allFilterMethods) {
-            String actualMethodName = allFilterMethod.getText();
-            if (actualMethodName.equalsIgnoreCase(methodName)) {
-                BrowserUtils.clickWithWait((By) allFilterMethod, 2);
-                break;
-            }
-        }
-    }
 
     public void enterMethodValues(String startVal, String endVal) {
         BrowserUtils.wait(1);
@@ -176,7 +167,6 @@ public class DashboardPage extends BasePage {
 
     @FindBy(xpath = "//*[@id=\"main-menu\"]/ul/li[1]/a/span")
     public WebElement dashboardTitle;
-
 
 
     //Starts Mutullah's locators

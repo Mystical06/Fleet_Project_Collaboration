@@ -11,28 +11,36 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class BasePage {
     protected static String userType;
 
     protected WebDriver driver;
 
-    public BasePage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public BasePage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
-    @FindBy(id="prependedInput")
+
+
+    @FindBy(css = "span.title-level-1")
+    public List<WebElement> menuOptions;
+    
+
+    @FindBy(id = "prependedInput")
     public WebElement inputUsername;
 
-    @FindBy (id="prependedInput2")
+    @FindBy(id = "prependedInput2")
     public WebElement inputPassword;
 
-    @FindBy(id="_submit")
+    @FindBy(id = "_submit")
     public WebElement logInButton;
 
     @FindBy(xpath = "(//div[@class='loader-frame'])[last()]")
     protected WebElement loaderMask;
 
 
-    public void driverLogin(){
+    public void driverLogin() {
         Driver.getDriver().get(ConfigurationReader.getProperty("login.page.url"));
         inputUsername.sendKeys(ConfigurationReader.getProperty("driver.username"));
         inputPassword.sendKeys(ConfigurationReader.getProperty("all.pw"));
@@ -40,13 +48,15 @@ public class BasePage {
 
     }
 
-    public void salesManagerLogin(){
+    public void salesManagerLogin() {
         Driver.getDriver().get(ConfigurationReader.getProperty("login.page.url"));
         inputUsername.sendKeys(ConfigurationReader.getProperty("salesmanager.username"));
         inputPassword.sendKeys(ConfigurationReader.getProperty("all.pw"));
         logInButton.click();
 
-    }    public void storeManagerLogin(){
+    }
+
+    public void storeManagerLogin() {
         Driver.getDriver().get(ConfigurationReader.getProperty("login.page.url"));
         inputUsername.sendKeys(ConfigurationReader.getProperty("storemanager.username"));
         inputPassword.sendKeys(ConfigurationReader.getProperty("all.pw"));
@@ -62,7 +72,7 @@ public class BasePage {
         }
     }
 
-    public String getPageTitle(){
+    public String getPageTitle() {
         return driver.getTitle();
     }
 
@@ -90,10 +100,9 @@ public class BasePage {
         BrowserUtils.clickWithTryCatch(menuLocator3);
     }
 
-    public void goBack(){
+    public void goBack() {
         driver.navigate().back();
     }
-
 
 
 }
