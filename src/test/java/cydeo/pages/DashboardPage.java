@@ -131,7 +131,17 @@ public class DashboardPage extends BasePage {
     public WebElement UpdateButton;
 
     @FindBy(xpath = "//tbody[@class='grid-body']/tr/td[6]")
+
     private List<WebElement> ChassisBetweenList;
+///=======
+    public List<WebElement> SelectedChassisNumberBetweenList;
+
+    public void enterMethodValues(String val) {
+        BrowserUtils.wait(1);
+        BrowserUtils.sendKeysWithWait(Input1, val, 2);
+        UpdateButton.click();
+    }
+
 
 
     public void enterMethodValues(String startVal, String endVal) {
@@ -142,9 +152,6 @@ public class DashboardPage extends BasePage {
     }
 
     //Fatma's codes end here
-
-
-
 
     @FindBy(xpath = "//a[@class='btn icons-holder-text no-hash']")
     public WebElement addEventMenu;
